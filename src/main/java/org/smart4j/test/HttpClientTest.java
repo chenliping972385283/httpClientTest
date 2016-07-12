@@ -29,13 +29,13 @@ public class HttpClientTest {
 
 
 public static void main(String[] args) throws IOException{
-    String loginURL = "http://16.6.0.13:8000/sap/bc/gui/sap/its/webgui";
+    String loginURL = "";
     CredentialsProvider provider = new BasicCredentialsProvider();
-    UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("songzf", "szf7035083");
+    UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("", "");
     provider.setCredentials(AuthScope.ANY, credentials);
     HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
 
-    HttpResponse response = client.execute(new HttpGet("http://16.6.0.13:8000/sap/bc/gui/sap/its/webgui"));
+    HttpResponse response = client.execute(new HttpGet(""));
     int statusCode = response.getStatusLine().getStatusCode();
     String loginHTML = EntityUtils.toString(response.getEntity());
     //System.out.println(statusCode)
@@ -48,8 +48,8 @@ public static void main(String[] args) throws IOException{
 
    List<NameValuePair> parameterList = new ArrayList<NameValuePair>();
     parameterList.add(new BasicNameValuePair("FOCUS_ID",FOCUS_ID));
-   parameterList.add(new BasicNameValuePair("dummy_sap_password","szf7035083"));
-   parameterList.add(new BasicNameValuePair("dummy_sap_user","songzf"));
+   parameterList.add(new BasicNameValuePair("dummy_sap_password",""));
+   parameterList.add(new BasicNameValuePair("dummy_sap_user",""));
     parameterList.add(new BasicNameValuePair("sap-client","500"));
     parameterList.add(new BasicNameValuePair("sap-language","ZH"));
     parameterList.add(new BasicNameValuePair("sap-language-dropdown","中文"));

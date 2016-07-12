@@ -23,14 +23,14 @@ import java.io.IOException;
 public class HttpClientCompany {
 
     public static void main(String[] args){
-        HttpGet getArticles = new HttpGet("http://16.6.0.13:8000/sap/bc/gui/sap/its/webgui");
+        HttpGet getArticles = new HttpGet("");
 
         Registry<AuthSchemeProvider> authSchemeRegistry =
                 RegistryBuilder.<AuthSchemeProvider>create().register(AuthSchemes.DIGEST,new DigestSchemeFactory()).build();
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(
-                new AuthScope("http://16.6.0.13:8000/sap/bc/gui/sap/its/webgui",80),
-                new UsernamePasswordCredentials("songzf","szf7035083"));
+                new AuthScope("",80),
+                new UsernamePasswordCredentials("",""));
 
         CloseableHttpClient client = HttpClients.custom()
                 .setDefaultAuthSchemeRegistry(authSchemeRegistry)
